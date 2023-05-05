@@ -7,7 +7,7 @@ def dirUser(userId):
         print(mainPath)
         myBotUsersPath = f'{mainPath}/cache/multiUse/Users'
     elif __name__ == '__main__':
-        myBotUsersPath = 'D:/Ruslan/2. Work/ТГУ/multiBot/cache/multiUse/Users'
+        myBotUsersPath = ''  #  full abspath to dir
 
     userDir = myBotUsersPath + f'/{uId}'
     print(userDir)
