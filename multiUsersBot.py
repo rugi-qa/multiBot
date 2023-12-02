@@ -135,16 +135,16 @@ async def process_callback_rock(callback_query: aio.types.CallbackQuery):
 async def process_callback_rock(callback_query: aio.types.CallbackQuery):
     with open(f'cache/multiUse/Users/{str(callback_query.from_user.id)}/cache/flag_RSP.txt', 'r') as flagRSP_file:
         flagRSP = flagRSP_file.read()
-    if flagRSP == 'True':
-        playerTurn = handGame.choise(True, 3)
-        PCTurn = handGame.choise(False, 3)
-        result_msg = RPS.compareHand(playerTurn['Game_Item'], PCTurn['Game_Item'])
-        await thisBot.answer_callback_query(callback_query.id)
-        await thisBot.send_message(
-            callback_query.from_user.id,
-            text=f'{playerTurn["msg"]},\n{PCTurn["msg"]},\n{result_msg}',
-            reply_markup=RSP_KB
-        )
+        if flagRSP == 'True':
+            playerTurn = handGame.choise(True, 3)
+            PCTurn = handGame.choise(False, 3)
+            result_msg = RPS.compareHand(playerTurn['Game_Item'], PCTurn['Game_Item'])
+            await thisBot.answer_callback_query(callback_query.id)
+            await thisBot.send_message(
+                callback_query.from_user.id,
+                text=f'{playerTurn["msg"]},\n{PCTurn["msg"]},\n{result_msg}',
+                reply_markup=RSP_KB
+            )
 
 @dp.message_handler()
 async def get_text_from_messages(message: aio.types.Message):
